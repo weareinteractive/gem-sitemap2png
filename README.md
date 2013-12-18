@@ -1,5 +1,7 @@
 # sitemap2png
 
+[![Gem Version](https://badge.fury.io/rb/sitemap2png.png)](http://badge.fury.io/rb/sitemap2png)
+
 > Commandline tool to take screenshots of all pages defined through a sitemap.xml in different resolutions.
 
 *Note: This tool uses [webkit2png](http://www.paulhammond.org/webkit2png/).*
