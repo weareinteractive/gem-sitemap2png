@@ -116,7 +116,7 @@ class WebkitLoad (Foundation.NSObject, WebKit.protocols.WebFrameLoadDelegate):
             if options.thumb:
                 thumbOutput.representationUsingType_properties_(
                         AppKit.NSPNGFileType,None
-                    ).writeToFile_atomically_(filename + "-thumb.png",objc.YES)
+                    ).writeToFile_atomically_(filename + ".png",objc.YES)
             if options.clipped:
                 clipOutput.representationUsingType_properties_(
                         AppKit.NSPNGFileType,None
@@ -310,6 +310,9 @@ Examples:
        options.initWidth = options.width
     if options.height>options.initHeight:
        options.initHeight = options.height
+
+    options.initWidth = options.width
+    options.initHeight = options.height
 
     app = AppKit.NSApplication.sharedApplication()
 

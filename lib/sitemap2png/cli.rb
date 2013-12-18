@@ -1,26 +1,38 @@
 require "thor"
-require 'net/http'
-require 'xml-simple'
+require "nokogiri"
+require "net/http"
 
 module Sitemap2png
   class Cli < Thor
 
     desc "load SITEMAP TARGET", "Load sitemap.xml and take screenshots"
-    method_option :verbose, :aliases => "-v", :type => :boolean, :default => false
+    method_option :delay, :aliases => "-d", :type => :numeric, :default => 0
     def load(sitemap, target)
-      basedir = File.dirname(File.dirname(__FILE__))
+      basedir = File.dirname(File.dirname(File.dirname(__FILE__)))
       webkit2png = "#{basedir}/vendor/webkit2png"
 
       # validate target
       raise Thor::Error, "Target directory does not exist!" unless Dir.exists?(target)
 
-      xml_data = Net::HTTP.get_response(URI.parse(sitemap)).body
+      begin
+        puts "Loading sitemap..."
+        xml = Net::HTTP.get_response(URI.parse(sitemap)).body
+      rescue Exception=>e
+        raise Thor::Error, "Could not read sitemap!"
+      end
+
       # validate data
-      raise Thor::Error, "Invalid xml!" if xml_data == ""
+      doc = Nokogiri::XML(xml)
 
-
-      # take shots
-      # system "#{webkit2png} -F --dir=#{target} --width=#{} --filename=#{}"
+      puts "Parsing pages..."
+      doc.css('url > loc').each do |node|
+        url = node.text
+        name = File.basename(url, '.*')
+        puts "Taking shots from: #{url}..."
+        [640, 768, 1024, 1600].each do |width|
+          system "#{webkit2png} #{url} --thumb --dir=#{target} --width=#{width} --filename=#{name}-#{width} --delay=#{options[:delay]}"
+        end
+      end
     end
 
   end
