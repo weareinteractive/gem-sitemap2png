@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+# -*- mode: ruby -*-
+
+require 'sitemap2png'
+Sitemap2png::Cli.start
