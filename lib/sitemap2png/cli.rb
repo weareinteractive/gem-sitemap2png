@@ -1,6 +1,7 @@
 require "thor"
 require "nokogiri"
 require "net/http"
+require 'fileutils'
 
 module Sitemap2png
   class Cli < Thor
@@ -12,7 +13,8 @@ module Sitemap2png
       webkit2png = "#{basedir}/vendor/webkit2png"
 
       # validate target
-      raise Thor::Error, "Target directory does not exist!" unless Dir.exists?(target)
+      FileUtils.mkdir_p(target) unless Dir.exists?(target)
+
 
       begin
         puts "Loading sitemap..."
