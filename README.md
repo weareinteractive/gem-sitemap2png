@@ -11,12 +11,36 @@
 ```
 $ gem install sitemap2png
 ```
+
 ## Usage
 
 The following tasks are available trough the command line.
 
 ```
 Commands:
+  sitemap2png help [COMMAND]          # Describe available commands or one specific command
+  sitemap2png load SITEMAP PATH WITH  # Load sitemap.xml & save screenshots
+```
+
+## Commands
+
+### load
+
+```
+Usage:
+  sitemap2png load SITEMAP PATH WITH
+
+Options:
+  -w, [--with=N]
+                   # Default: 1024
+  -d, [--delay=N]
+                   # Default: 0
+```
+
+## Example Usage
+
+```
+$ sitemap2png load http://mysite.com/sitemap.xml /path/to/destination -w 1900
 ```
 
 ## Development
