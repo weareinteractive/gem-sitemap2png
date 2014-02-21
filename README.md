@@ -19,7 +19,7 @@ The following tasks are available trough the command line.
 ```
 Commands:
   sitemap2png help [COMMAND]          # Describe available commands or one specific command
-  sitemap2png load SITEMAP PATH WITH  # Load sitemap.xml & save screenshots
+  sitemap2png load SITEMAP PATH       # Load sitemap.xml & save screenshots
 ```
 
 ## Commands
@@ -28,10 +28,10 @@ Commands:
 
 ```
 Usage:
-  sitemap2png load SITEMAP PATH WITH
+  sitemap2png load SITEMAP PATH
 
 Options:
-  -w, [--with=N]
+  -w, [--width=N]
                    # Default: 1024
   -d, [--delay=N]
                    # Default: 0
@@ -55,6 +55,8 @@ rake release  # Create tag v0.1.1 and build and push sitemap2png-0.1.0.gem to Ru
 ```
 
 ## Contributing
+[![I Love Open Source](http://www.iloveopensource.io/images/logo-lightbg.png)](http://www.iloveopensource.io/projects/52ee312487659fce66000052)
+
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality.
 
 1. Fork it
@@ -65,3 +67,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## License
 Copyright (c) 2013 We Are Interactive under the MIT license.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/weareinteractive/gem-sitemap2png/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
