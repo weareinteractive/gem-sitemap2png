@@ -6,8 +6,8 @@ require 'fileutils'
 module Sitemap2png
   class Cli < Thor
 
-    desc "load SITEMAP PATH WITH", "Load sitemap.xml & save screenshots"
-    method_option :with, :aliases => "-w", :type => :numeric, :default => 1024
+    desc "load SITEMAP PATH", "Load sitemap.xml & save screenshots"
+    method_option :width, :aliases => "-w", :type => :numeric, :default => 1024
     method_option :delay, :aliases => "-d", :type => :numeric, :default => 0
     def load(sitemap, path)
       @basedir = File.dirname(File.dirname(File.dirname(__FILE__)))
