@@ -66,6 +66,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 5. Create new Pull Request
 
 ## License
-Copyright (c) 2013 We Are Interactive under the MIT license.
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/weareinteractive/gem-sitemap2png/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+Copyright (c) We Are Interactive under the MIT license.
